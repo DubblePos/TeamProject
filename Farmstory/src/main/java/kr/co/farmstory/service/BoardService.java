@@ -3,6 +3,8 @@ package kr.co.farmstory.service;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -64,7 +66,15 @@ public class BoardService {
     public void updateArticle(ArticleVo vo) {
         dao.updateArticle(vo);
     }
-
+    public void updateArticleHit(int seq) {
+    	dao.updateArticleHit(seq);
+    }
+    public void plusArticleComment(ArticleVo vo) {
+    	dao.plusArticleComment(vo);
+    }
+    public void minusArticleComment(ArticleVo vo) {
+    	dao.minusArticleComment(vo);
+    }
     public void updateFileDownload(int fseq) {
         dao.updateFileDownload(fseq);
     }
@@ -90,9 +100,8 @@ public class BoardService {
     // 파일 업로드
     public FileVo fileUpload(MultipartFile fname, int seq) {
 
-        File file = new File("src/main/resources/static/file");
-        String path = file.getAbsolutePath();
-
+    	
+        
         /*
          * 여러 클라이언트가 같은 이름으로 파일을 업로드 할 수 있기 때문에 중복되는것을 막기위하여 구분해주기 위한것
          */
@@ -100,19 +109,33 @@ public class BoardService {
         String ext = name.substring(name.lastIndexOf("."));
 
         /* 절대로 겹칠 수 없는 난수를 만들어서 중복 이름 파일들을 구분하여 준다 */
-        String uName = UUID.randomUUID().toString() + ext;
+        
+        String newName = UUID.randomUUID().toString() + ext;
 
         FileVo fvo = null;
 
+        
+        String absolutePath = new File("").getAbsolutePath() + "\\";
+
+        // 경로를 지정하고 그곳에다가 저장할 심산이다
+        String path = "files/";
+        
+        File file = new File(path);
+        // 저장할 위치의 디렉토리가 존지하지 않을 경우
+        if(!file.exists()){
+            // mkdir() 함수와 다른 점은 상위 디렉토리가 존재하지 않을 때 그것까지 생성
+            file.mkdirs();
+        }
         try {
             // 첨부파일 저장
-            fname.transferTo(new File(path + "/" + uName));
+        	file = new File(absolutePath + path + "/" + newName);
+            fname.transferTo(file);
 
             // 첨부파일 정보객체 생성
             fvo = new FileVo();
             fvo.setParent(seq);
             fvo.setOriName(name);
-            fvo.setNewName(uName);
+            fvo.setNewName(newName);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -123,11 +146,18 @@ public class BoardService {
 
     // 파일 다운로드
     public void fileDownload(HttpServletResponse resp, FileVo fileVo) {
-        File file = new File("src/main/resources/static/file/");
-        String path = file.getAbsolutePath() + "/" + fileVo.getNewName();
+    	
+        
+        String absolutePath = new File("").getAbsolutePath() + "\\";
 
+        // 경로를 지정하고 그곳에다가 저장할 심산이다
+        String path = "files/";
+        
+        
+        
         try {
-            byte[] fileByte = FileUtils.readFileToByteArray(new File(path));
+        	File file = new File(absolutePath + path + "/" + fileVo.getNewName());
+            byte[] fileByte = FileUtils.readFileToByteArray(file);
 
             // 파일 다운로드 response 헤더수정
             resp.setContentType("application/octet-stream");

@@ -29,7 +29,13 @@ public interface BoardDao {
     public int selectCountTotal(String cate);
 
     public void updateArticle(ArticleVo vo);
-
+    
+    public void plusArticleComment(ArticleVo vo);
+    
+    public void minusArticleComment(ArticleVo vo);
+    
+    public void updateArticleHit(int seq);
+    
     public void updateFileDownload(int fseq);
 
     public void updateComment(int seq);

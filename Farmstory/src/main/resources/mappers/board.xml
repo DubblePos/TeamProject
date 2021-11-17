@@ -93,6 +93,21 @@
               `rdate`= NOW()
         WHERE `seq` = #{seq} AND `cate` = #{cate};
 	</update>
+	<update id="updateArticleHit">
+		UPDATE `Jboard_article` SET
+			  `hit` = `hit` + 1 
+              WHERE `seq` = #{seq};
+	</update>
+	<update id="plusArticleComment">
+		UPDATE `Jboard_article` SET
+			  `comment` = `comment` + 1 
+              WHERE `seq` = #{parent};
+	</update>
+	<update id="minusArticleComment">
+		UPDATE `Jboard_article` SET
+			  `comment` = `comment` - 1 
+              WHERE `seq` = #{parent};
+	</update>
 	
 	<update id="updateComment">
 		UPDATE `Jboard_article` SET 

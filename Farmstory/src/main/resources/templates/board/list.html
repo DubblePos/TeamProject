@@ -7,8 +7,8 @@
 </head>
 <body>
     <div id="wrapper">
-     <th:block th:include="@{/_header.html}"></th:block>
-     <th:block th:include="@{/board/_aside__${group}__.html}"></th:block>
+     <th:block th:include="_header.html"></th:block>
+     <th:block th:include="board/_aside__${group}__.html"></th:block>
         <section id="board" class="list">
             <h3>글목록</h3>
             <article>
@@ -58,7 +58,7 @@
 
         </div>
    
-        <th:block th:include="/_footer.html"></th:block>
+        <th:block th:include="_footer.html"></th:block>
     </div>    
 </body>
 </html>

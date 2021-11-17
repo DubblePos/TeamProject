@@ -39,9 +39,9 @@ public class MemberController {
 		MemberVo mv = service.selectMember(uid, pass);
 		if (mv != null) {
 			sess.setAttribute("sessMember", mv);
-			return "redirect:/index?success=104";
+			return "redirect:/index?success=104"; // 로그인에 성공했다는 플래그 
 		} else {
-			return "redirect:/member/login?success=100";
+			return "redirect:/member/login?success=100"; // 로그인에 실패했다는 플래그
 		}
 
 	}

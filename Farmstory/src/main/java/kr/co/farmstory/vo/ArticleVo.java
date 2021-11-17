@@ -26,6 +26,8 @@ public class ArticleVo {
 
     private String nick;
 
+    private String group;
+    
     private FileVo fileVo;
 
 }

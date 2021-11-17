@@ -7,13 +7,16 @@
 </head>
 <body>
     <div id="wrapper">
-       <th:block th:include="/_header.html"></th:block>
-        <th:block th:include="@{/board/_aside__${group}__.html}"></th:block>
-        <input type="hidden" name="uid"    th:value="${session.sessMember.uid}">
+       <th:block th:include="_header.html"></th:block>
+        <th:block th:include="board/_aside__${group}__.html"></th:block>
+        <input type="hidden" th:if="${session.sessMember != null}"name="uid" th:value="${session.sessMember.uid}"/>
         <section id="board" class="modify">
             <h3>글수정</h3>
             <article>
-                <form th:action="@{/board/modify(group=${group},cate=${cate},seq=${articleVo.seq})}" method="post" enctype="multipart/form-data">
+                <form th:action="@{/board/modify}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="group" th:value="${group}"/>
+                	<input type="hidden" name="cate" th:value="${cate}"/>
+                	<input type="hidden" th:if="${session.sessMember != null}"name="uid" th:value="${session.sessMember.uid}"/>
                     <table>
                         <tr>
                             <td>제목</td>
@@ -37,7 +40,7 @@
                 </form>
             </article>
         </section>
-      <th:block th:include="/_footer.html"></th:block>
+      <th:block th:include="_footer.html"></th:block>
     </div>
 </body>
 </html>

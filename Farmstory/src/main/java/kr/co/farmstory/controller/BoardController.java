@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,16 +50,20 @@ public class BoardController {
 	}
 
 	@GetMapping("/board/write")
-	public String write(String group, String cate, Model model) {
-
+	public String write(String group, String cate, Model model,HttpSession sess) {
+		
 		model.addAttribute("group", group);
 		model.addAttribute("cate", cate);
-
-		return "/board/write";
+		if(sess.getAttribute("sessMember") != null) {
+			return "/board/write";
+		}
+		else {
+			return "redirect:/member/login?success=103";
+		}
 	}
 
 	@PostMapping("/board/write")
-	public String write(HttpServletRequest req, ArticleVo vo, String group, String cate, Model model) {
+	public String write(HttpServletRequest req, ArticleVo vo, Model model) {
 
 		String regip = req.getRemoteAddr();
 		vo.setRegip(regip);
@@ -82,10 +87,7 @@ public class BoardController {
 			service.insertFile(fvo);
 		}
 
-		model.addAttribute("group", group);
-		model.addAttribute("cate", cate);
-
-		return "redirect:/board/list?group=" + group + "&cate=" + cate;
+		return "redirect:/board/list?group=" + vo.getGroup() + "&cate=" + vo.getCate();
 	}
 
 	@GetMapping("/fileDownload")
@@ -103,6 +105,8 @@ public class BoardController {
 	@GetMapping("/board/view")
 	public String view(Model model, String group, String cate, int seq) {
 
+		service.updateArticleHit(seq);
+		
 		ArticleVo vo = service.selectArticle(seq);
 		List<ArticleVo> comments = service.selectComments(seq);
 
@@ -127,13 +131,13 @@ public class BoardController {
 	}
 
 	@PostMapping("/board/modify")
-	public String modify(ArticleVo vo, String group, String cate, Model model) {
+	public String modify(ArticleVo vo, Model model) {
 
 		int seq = vo.getSeq();
 		service.updateArticle(vo);
 
-		model.addAttribute("group", group);
-		model.addAttribute("cate", cate);
+		model.addAttribute("group", vo.getGroup());
+		model.addAttribute("cate", vo.getCate());
 
 		if (vo.getFname().isEmpty()) {
 			// 파일 첨부 안했을 때
@@ -148,7 +152,7 @@ public class BoardController {
 			service.insertFile(fvo);
 		}
 
-		return "redirect:/board/view?group=" + group + "&cate=" + cate + "&seq=" + vo.getSeq();
+		return "redirect:/board/view?group=" + vo.getGroup() + "&cate=" + vo.getCate() + "&seq=" + vo.getSeq();
 
 	}
 
@@ -163,26 +167,29 @@ public class BoardController {
 	}
 
 	@PostMapping("/board/insertComment")
-	public String insertComment(ArticleVo vo, String group, String cate, Model model) {
+	public String insertComment(ArticleVo vo, Model model) {
 
 		service.insertComment(vo);
+		
+		service.plusArticleComment(vo);
+		
+		
+		model.addAttribute("group", vo.getGroup());
+		model.addAttribute("cate", vo.getCate());
 
-		model.addAttribute("group", group);
-		model.addAttribute("cate", cate);
-
-		return "redirect:/board/view?group=" + group + "&cate=" + cate + "&seq=" + vo.getParent();
+		return "redirect:/board/view?group=" + vo.getGroup() + "&cate=" + vo.getCate() + "&seq=" + vo.getParent();
 
 	}
 
 	@GetMapping("/board/deleteComment")
-	public String deleteComment(Model model, String cate, String group, int seq, ArticleVo vo) {
+	public String deleteComment(Model model, ArticleVo vo) {
 
-		service.deleteComment(seq);
+		service.deleteComment(vo.getSeq());
+		service.minusArticleComment(vo);
+		model.addAttribute("group", vo.getGroup());
+		model.addAttribute("cate", vo.getCate());
 
-		model.addAttribute("group", group);
-		model.addAttribute("cate", cate);
-
-		return "redirect:/board/view?group=" + group + "&cate=" + cate + "&seq=" + vo.getParent();
+		return "redirect:/board/view?group=" + vo.getGroup() + "&cate=" + vo.getCate() + "&seq=" + vo.getParent();
 
 	}
 
