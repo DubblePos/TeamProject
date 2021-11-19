@@ -3,8 +3,6 @@ package kr.co.farmstory.service;
 import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -12,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,6 +24,8 @@ public class BoardService {
     @Autowired
     private BoardDao dao;
 
+    @Value("${file.upload-dir}")
+    private String uploadFileDir;
     // dao 구현 메서드
     public int insertArticle(ArticleVo vo) {
         dao.insertArticle(vo);
@@ -115,10 +116,10 @@ public class BoardService {
         FileVo fvo = null;
 
         
-        String absolutePath = new File("").getAbsolutePath() + "\\";
+        String path = new File(uploadFileDir).getAbsolutePath();
 
         // 경로를 지정하고 그곳에다가 저장할 심산이다
-        String path = "files/";
+        
         
         File file = new File(path);
         // 저장할 위치의 디렉토리가 존지하지 않을 경우
@@ -128,7 +129,7 @@ public class BoardService {
         }
         try {
             // 첨부파일 저장
-        	file = new File(absolutePath + path + "/" + newName);
+        	file = new File(path + "/" + newName);
             fname.transferTo(file);
 
             // 첨부파일 정보객체 생성
@@ -148,15 +149,10 @@ public class BoardService {
     public void fileDownload(HttpServletResponse resp, FileVo fileVo) {
     	
         
-        String absolutePath = new File("").getAbsolutePath() + "\\";
-
-        // 경로를 지정하고 그곳에다가 저장할 심산이다
-        String path = "files/";
-        
-        
+    	String path = new File(uploadFileDir).getAbsolutePath();
         
         try {
-        	File file = new File(absolutePath + path + "/" + fileVo.getNewName());
+        	File file = new File(path + "/" + fileVo.getNewName());
             byte[] fileByte = FileUtils.readFileToByteArray(file);
 
             // 파일 다운로드 response 헤더수정
