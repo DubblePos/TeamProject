@@ -1,0 +1,147 @@
+#header-img{
+    width: 51%;
+    height: 274px;
+    margin-top: 40px;
+    margin-right: 395px;
+    border: 1px solid black;
+    float: right;
+} 
+main{}
+main > section{
+    margin: 0 auto;
+    
+}
+
+/* 占쎌겫占쎌넅 占쎄맒占쎄쉭 占쎌젟癰귨옙 */
+
+main > section > .detail-title{
+    margin-top: 100px;
+    margin-left: -100px;
+}
+main > section > .detail-title > h1{
+    font-size: 40px;
+    
+}
+main > section > .detail-title > hr{
+    margin-top: 30px;
+    width: 1200px;
+    border: 2px solid red;
+}
+
+main > section > .detail-image > img{
+    margin-left: -100px;
+    width: 202px;
+    height: 290px;
+
+}
+main > section > .detail-contents{
+  	width: 984px;
+    height: 220px;
+    margin-left: 120px;
+    margin-top: -295px;
+}
+main > section > .detail-contents > .movie-title{
+    font-size: 30px;
+}
+main > section > .detail-contents > .current-movie{
+    font-size: 20px;
+}
+main > section > .detail-contents > div{
+    margin-top: 6px;
+    font-size: 20px;
+}
+main > section > .detail-contents > div > p{
+    display: inline;
+    font-size: 15px;
+}
+
+/* 占쎌겫占쎌넅 餓κ쑨援끿뵳占� */
+
+.movie-content {
+    width: 1200px;
+    margin-top: 150px;
+    margin-left: -100px;
+}
+.movie-content > h1{
+    font-size: 30px;
+}
+.movie-content > hr{
+    border: 1px solid gray;
+    margin-top: 10px;
+}
+.movie-content > p{
+    font-size: 20px;
+    margin-top: 20px;
+}
+.paging {
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+}
+.body-wrap{
+    position: relative;
+}
+.body-wrap > .review{
+    position: absolute;
+    width: 1202px;
+    top: 1300px;
+    margin-left: 352px;
+}
+.review > nav{}
+.review > nav > h1{
+    font-size: 30px;
+}
+.review > ul{
+    margin-top: 40px;
+}
+.review > ul > li{
+    padding-top: 30px;
+}
+.review > ul > li > .movie-evaluate > h5{
+    font-size: 20px;
+}
+.review > ul > li > .movie-evaluate > span{
+    font-size: 20px;
+    color: black;
+}
+.review > ul > li > h3{
+    color: blue;
+}
+.review > ul > li >  p{
+    font-size: 20px;
+    color: red;
+}
+
+/* 占쎈읂占쎌뵠筌욑옙 甕곕뜇�깈  */
+
+.paging > span > a {
+    color: #777;            
+    font-size: 11px;
+    letter-spacing: -1px;
+}
+
+.paging > span > a:hover {
+    text-decoration: underline;
+}
+
+.paging > .num > a {
+    display: inline-block;
+    min-width: 14px;
+    margin: 0 2px;
+    padding: 8px 9px;
+    border: 1px solid #c4c4c4;
+    background: url() 0 0 repeat-x;
+    color: #000;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+}
+.paging > .num > a:hover {
+    border: 1px solid #454c5f;
+    text-decoration: none;
+}
+.paging > .num > a.on {
+    color: #fe434c;
+    font-weight: bold;
+}
+
