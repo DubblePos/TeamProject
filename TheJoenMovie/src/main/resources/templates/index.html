@@ -24,6 +24,12 @@
             });
         });
     </script>
+    <script type="text/javascript" th:inline="javascript">
+    	var success = [[${success}]];
+    	if(success == '100'){
+    		alert('로그인에 성공하였습니다.');
+    	}
+    </script>
     
 </head>
 <body>

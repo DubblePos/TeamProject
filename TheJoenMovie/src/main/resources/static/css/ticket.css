@@ -12,8 +12,8 @@ main > .book-ticket{
     width: 600px;
     height: 800px;
     margin-top: 111px;
-    margin-left: 200px;
-    text-align: center;r;
+    margin-left: 370px;
+    text-align: center;
     
     
 }
@@ -69,21 +69,35 @@ main > section > .select.select-seat > .check-seats > .digits > p{
 .select.select-seat .check-seats input{
     width: 20px;
     height: 20px;
-    margin: 10px 14px;
+    margin: 3px 9px;
     border: 1px solid black;
     text-align: center;
 }
 .select.select-seat .check-seats .seat5{
     margin-right: 50px;
 }
-
+/* 예약된 좌석은 스타일링 변경 */
+.check-seats table tr .booked{
+	background-color: #ff0000;
+	color: #ffffff;
+}
+/* 좌석번호 폰트 설정 */
+.check-seats table tr td p{
+	font-size: 20px;
+}
+.check-seats table tr td label{
+	font-size: 20px;
+}
+.check-seats table{
+	margin: 0 -50px;
+}
 /* 최종적으로 예매하기 전 합산 */
  .final-pay{
     float: right;
     width: 500px;
     height: 900px;
-    margin-top: -792px;
-    margin-right: 120px;
+    margin-top: -899px;
+    margin-right: -664px;
  }
  .final-pay .final-cate .title{
      display: block;
@@ -109,3 +123,6 @@ main > section > .select.select-seat > .check-seats > .digits > p{
      font-size: 20px;
      margin-top: 30px;
  }
+ 
+ 
+ 

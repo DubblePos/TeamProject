@@ -59,3 +59,10 @@
 #user.login > .info > a {
     float: right;
 }
+
+/* 로그인 이미지 설정 */
+main  #mb-4{   
+      width: 850px;
+      height: 450px;
+      margin: 50px -250px;
+}

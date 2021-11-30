@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.co.thejoenmovie.service.MainService;
 import kr.co.thejoenmovie.vo.MovieVo;
@@ -17,12 +18,12 @@ public class MainController {
 	private MainService service;
 	
 	@GetMapping(value = {"/", "/index"})
-	public String index(Model model) {
+	public String index(Model model,String success) {
 		
 		List<MovieVo> movieinfo = service.selectMovieInfo();
 		
 		model.addAttribute("movieinfo", movieinfo);
-		
+		model.addAttribute("success",success);
 		return "/index";
 	}
 	
@@ -49,7 +50,7 @@ public class MainController {
 		return "/view_total_movie";
 	}
 	
-	@GetMapping("/book_ticket")
+	@RequestMapping("/book_ticket")
 	public String book_ticket(){
 		return "/book_ticket";
 	}

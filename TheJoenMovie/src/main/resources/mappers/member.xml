@@ -26,4 +26,13 @@
   	<select id="selectCountHp" resultType="int">
   		SELECT COUNT(`phone`) FROM `Customers` WHERE `phone`=#{hp};
   	</select>
+  	
+  	<select id="selectMember" resultType="kr.co.thejoenmovie.vo.MemberVo">
+  		SELECT * FROM `Customers`
+  			WHERE `uid`= #{uid} 
+  			 AND `pass` = PASSWORD(#{pass});
+  	</select>
+  	
+  	
+  	
 </mapper>

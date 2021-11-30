@@ -12,12 +12,35 @@
 	<select id="selectCate3" resultType="kr.co.thejoenmovie.vo.TimeVo">
 		SELECT * FROM `Date` WHERE `cinema_name` = #{cinema_name};
 	</select>
+	<select id="selectCate4" resultType="kr.co.thejoenmovie.vo.TimeVo">
+		SELECT * FROM `Date` WHERE `cinema_name` = #{cinema_name} AND `date` = #{date};
+	</select>
+	<select id="selectSeats" resultType="kr.co.thejoenmovie.vo.CheckedSeatVo">
+		SELECT * FROM `Seat` 
+		WHERE `title` = #{title}
+		 AND `cinema_name` = #{cinema_name}
+		 AND `date` = #{date}
+		 AND `time_start` = #{time_start};
+	
+	</select>
+	
+	
 	<insert id="insertTicket">
 		INSERT INTO `Ticket` SET
 			`movie_title` = #{movie_title},
 			`movie_cinema` = #{movie_cinema},
 			`movie_date` = #{movie_date},
+			`movie_time` = #{movie_time},
 			`movie_seats` = #{movie_seats},
 			`movie_price` = #{movie_price};
+	</insert>
+	<insert id="insertSeat">
+		INSERT INTO `Seat` SET
+			`title` = #{title},
+			`cinema_name` = #{cinema_name},
+			`date` = #{date},
+			`time_start` = #{time_start},
+			`seat`  = #{seat};
+	
 	</insert>
 </mapper>

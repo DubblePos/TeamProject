@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,7 +59,7 @@
 					},'json');
 				});
 				$('input[name=pass2]').focusout(function(){
-					var pass1 = $('input[name=pass1]').val();
+					var pass1 = $('input[name=pass]').val();
 					var pass2 = $(this).val();
 					if(pass1 == pass2){
 						if(rePass.test(pass2)){

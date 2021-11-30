@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -12,8 +13,7 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    
-    
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/header.css}"/>
     <link rel="stylesheet" th:href="@{/css/ticket.css}"/>
     
@@ -31,7 +31,7 @@
         });
 		  
     </script>
-	
+		
     
 </head>
 <body>
@@ -59,9 +59,16 @@
                 </div>
                 
                 <div class="select select-date">
-                    <h1><< 날짜&시간 >> </h1>
+                    <h1><< 날짜 >> </h1>
                     <select class="cate" name="date-cate">
-                        <option value="0">날짜&시간 선택</option>
+                        <option value="0">날짜 선택</option>
+                    </select>
+
+                </div>
+                <div class="select select-time">
+                    <h1><< 시간 >> </h1>
+                    <select class="cate" name="time-cate">
+                        <option value="0">시간 선택</option>
                     </select>
 
                 </div>
@@ -71,160 +78,228 @@
                         <h1>Screen</h1>
                     </div>
                     <div class="check-seats">
-                     
-                        <div class="no-seats">
-                        	<input class="seat0" type="text" name="1" style="border: 1px solid white;">
-                            <input class="seat1" type="text" name="1"  value="1">
-                            <input class="seat2" type="text" name="2"  value="2">
-                            <input class="seat3" type="text" name="3" value="3">
-                            <input class="seat4" type="text" name="4" value="4">
-                            <input class="seat5" type="text" name="5" value="5">
-                            <input class="seat6" type="text" name="6" value="6">
-                            <input class="seat7" type="text" name="7" value="7">
-                            <input class="seat8" type="text" name="8" value="8">
-                            <input class="seat9" type="text" name="9"  value="9">
-                            <input class="seat10" type="text" name="10" value="10">
-                        </div>
-                        <div class="A-seats">
-                            <input class="seat1" type="text" name="A" value="A">
-                            <input class="seat1" type="checkbox" name="checkSeat" value="A1" onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat" value="A2" onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat" value="A3" onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat" value="A4" onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat" value="A5" onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat" value="A6" onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat" value="A7" onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat" value="A8" onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat" value="A9" onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat" value="A10" onclick='getValue()'>
-                        </div>
-                        <div class="B-seats">
-                            <input class="seat1" type="text" name="B" value="B">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="B1" onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="B2" onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="B3" onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="B4" onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="B5" onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="B6" onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="B7" onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="B8" onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="B9" onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="B10" onclick='getValue()'>
-                        </div>
-                        <div class="C-seats">
-                            <input class="seat1" type="text" name="C" value="C">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="C1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="C2" onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="C3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="C4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="C5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="C6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="C7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="C8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="C9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="C10"onclick='getValue()'>
-                        </div>
-                        <div class="D-seats">
-                            <input class="seat1" type="text" name="D" value="D">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="D1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="D2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="D3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="D4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="D5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="D6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="D7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="D8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="D9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"vlaue="D10"onclick='getValue()'>
-                        </div>
-                        <div class="E-seats">
-                            <input class="seat1" type="text" name="E" value="E">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="E1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="E2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="E3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="E4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="E5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="E6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="E7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="E8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="E9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="E10"onclick='getValue()'>
-                        </div>
-                        <div class="F-seats">
-                            <input class="seat1" type="text" name="F" value="F">
-                        
-                            <input class="seat1" type="checkbox" name="checkSeat"value="F1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="F2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="F3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="F4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="F5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="F6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="F7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="F8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="F9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="F10"onclick='getValue()'>
-                        </div>
-                        <div class="G-seats">
-                            <input class="seat1" type="text" name="G" value="G">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="G1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="G2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="G3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="G4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="G5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="G6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="G7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="G8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="G9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="G10"onclick='getValue()'>
-                        </div>
-                        <div class="H-seats">
-                            <input class="seat1" type="text" name="H" value="H">
-                            <input class="seat1" type="checkbox" name="checkSeat" value="H1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat" value="H2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat" value="H3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat" value="H4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat" value="H5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat" value="H6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat" value="H7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat" value="H8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat" value="H9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat" value="H10"onclick='getValue()'>
-                        </div>
-                        <div class="I-seats">
-                            <input class="seat1" type="text" name="I" value="I">
-                            <input class="seat1" type="checkbox" name="checkSeat" value="I1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat" value="I2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat" value="I3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat" value="I4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat" value="I5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat" value="I6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat" value="I7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat" value="I8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat" value="I9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat" value="I10"onclick='getValue()'>
-                        </div>
-                        <div class="J-seats">
-                            <input class="seat1" type="text" name="J" value="J">
-                            <input class="seat1" type="checkbox" name="checkSeat"value="J1"onclick='getValue()'>
-                            <input class="seat2" type="checkbox" name="checkSeat"value="J2"onclick='getValue()'>
-                            <input class="seat3" type="checkbox" name="checkSeat"value="J3"onclick='getValue()'>
-                            <input class="seat4" type="checkbox" name="checkSeat"value="J4"onclick='getValue()'>
-                            <input class="seat5" type="checkbox" name="checkSeat"value="J5"onclick='getValue()'>
-                            <input class="seat6" type="checkbox" name="checkSeat"value="J6"onclick='getValue()'>
-                            <input class="seat7" type="checkbox" name="checkSeat"value="J7"onclick='getValue()'>
-                            <input class="seat8" type="checkbox" name="checkSeat"value="J8"onclick='getValue()'>
-                            <input class="seat9" type="checkbox" name="checkSeat"value="J9"onclick='getValue()'>
-                            <input class="seat10" type="checkbox" name="checkSeat"value="J10"onclick='getValue()'>
-                        </div>
-
-                        
-
+                    	<table>
+                     		<th:block th:each="num: ${#numbers.sequence(1, 13)}">
+                     			<tr>
+									<td>
+										<p th:if="${num == 1}" class="A" th:value="A">A</p>
+										<p th:if="${num == 2}" class="B" th:value="B">B</p>
+										<p th:if="${num == 3}" class="C" th:value="C">C</p>
+										<p th:if="${num == 4}" class="D" th:value="D">D</p>
+										<p th:if="${num == 5}" class="E" th:value="E">E</p>
+										<p th:if="${num == 6}" class="F" th:value="F">F</p>
+										<p th:if="${num == 7}" class="G" th:value="G">G</p>
+										<p th:if="${num == 8}" class="H" th:value="H">H</p>
+										<p th:if="${num == 9}" class="I" th:value="I">I</p>
+										<p th:if="${num == 10}" class="J" th:value="J">J</p>
+										<p th:if="${num == 11}" class="K" th:value="K">K</p>
+										<p th:if="${num == 12}" class="L" th:value="L">L</p>
+										<p th:if="${num == 13}" class="M" th:value="M">M</p>
+									</td>
+									<th:block th:each="j: ${#numbers.sequence(1, 15)}">
+										<th:block th:if="${num == 1}">
+											<td  class="bookable"  th:with="seatInit='A'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()"class="seat" th:name="|${seatInit}${j}|"
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 2}">
+											<td  class="bookable"  th:with="seatInit='B'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 3}">
+											<td  class="bookable"  th:with="seatInit='C'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 4}">
+											<td  class="bookable"  th:with="seatInit='D'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 5}">
+											<td  class="bookable"  th:with="seatInit='E'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 6}">
+											<td  class="bookable"  th:with="seatInit='F'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 7}">
+											<td  class="bookable"  th:with="seatInit='G'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 8}">
+											<td  class="bookable"  th:with="seatInit='H'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 9}">
+											<td  class="bookable"  th:with="seatInit='I'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 10}">
+											<td  class="bookable"  th:with="seatInit='J'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 11}">
+											<td  class="bookable"  th:with="seatInit='K'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 12}">
+											<td  class="bookable"  th:with="seatInit='L'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">&nbsp;[[${j}]]&nbsp;
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td></td>
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td></td>
+											</th:block>
+										</th:block>
+										<th:block th:if="${num == 13}">
+											<td  class="bookable"  th:with="seatInit='M'">
+												<label th:for="|seat${(num-1)*15 + j}|">
+													<input type="checkBox" onclick="getValue()" class="seat" th:name="|${seatInit}${j}|"
+													
+													th:id="|seat${(num-1)*15 + j}|" th:value="|${seatInit}${j}|">[[${j}]]
+												</label>
+											</td>
+											<th:block th:if="${j == 4}">
+												<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+												
+												
+											</th:block>
+											<th:block th:if="${j == 11}">
+												<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+											</th:block>
+										</th:block>
+									</th:block>
+								</tr>
+                     	</th:block>
                     </div>
-                
-				
                 </div>
-                
             </section>
+            
             
             
             <div class="final-pay">
@@ -232,7 +307,7 @@
                 
                 <div class="final-cate final-movie">
                     <span class="title movie-title"style="font-size: 20px;"> 영화 </span>
-                    <span class="value movie-value"style="font-size: 20px;">영화를 선택해주세요. </span>
+                    <span class="value movie-value"style="font-size: 20px;">영화를 선택해주세요.</span>
 
                 </div>
                 
@@ -244,22 +319,27 @@
                 
                 <div class="final-cate final-date">
                     <span class="title date-title" style="font-size: 20px;"> 날짜 </span>
-                    <span class="value date-value" style="font-size: 20px;">날짜와시간을 선택해주세요. </span>
+                    <span class="value date-value" style="font-size: 20px;">날짜를 선택해주세요.</span>
+
+                </div>
+                <div class="final-cate final-time">
+                    <span class="title time-title" style="font-size: 20px;"> 시간 </span>
+                    <span class="value time-value" style="font-size: 20px;">시간을 선택해주세요.</span>
 
                 </div>
                 
                 <div class="final-cate final-seats">
                     <span class="title seat-title" style="font-size: 20px;"> 좌석 </span>
-                    <span id="final-seat" class="value seat-value" style="font-size: 20px;">좌석을 선택해주세요. </span>
+                    <span id="final-seat" class="value seat-value" style="font-size: 20px;">좌석을 선택해주세요.</span>
 
                 </div>
                 <div class="final-cate final-total">
                     <span class="title price-title" style="font-size: 20px;"> 가격 </span>
-                    <span id="final-price" class="value price-value" style="font-size: 20px;"> 0 원 </span>
+                    <span id="final-price" class="value price-value" style="font-size: 20px;">0원</span>
                 </div>
                 
                 <div class="book-ticket">
-                        <button type="button" class="btn btn-danger">에매하기</button>
+                        <button type="button" class="btn btn-danger">예매하기</button>
                 </div>
             </div>
         </main>

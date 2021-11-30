@@ -11,4 +11,5 @@ public interface MemberDao {
 	public int selectCountNick(String nick);
 	public int selectCountEmail(String email);
 	public int selectCountHp(String hp);
+	public MemberVo selectMember(MemberVo mv);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,21 +13,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    <link rel="stylesheet" href="../css/header.css"/>
-    <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/login.css"/>
-    <style>
-            
-        
-        main  #mb-4{   
-            width: 850px;
-            height: 450px;
-            margin: 50px -250px;
-            
-        }
-    </style>
-
-
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/login.css}"/>
+    
+    <script type="text/javascript" th:inline="javascript">
+    	var success = [[${success}]];
+    	if(success == '101'){
+    		alert('아이디와 비밀번호를 다시 입력해주세요.');
+    		
+    	}
+    </script>
 </head>
 <body>
     <div class="body-wrap">
@@ -35,14 +31,14 @@
         <main>
             <section id="user" class="login">
                 <h1 style="font-size: 30px; text-align: center;">로그인</h1>
-                <form action="../list.html">
+                <form th:action="@{/member/login}" method="post">
                     <table border="0">
                         <tr>
-                            <td><img src="../img/login_ico_id.png" alt="아이디"/></td>
+                            <td><img th:src="@{/img/login_ico_id.png}" alt="아이디"/></td>
                             <td><input type="text" name="uid" placeholder="아이디를 입력" /></td>
                         </tr>
                         <tr>
-                            <td><img src="../img/login_ico_pw.png" alt="비밀번호"/></td>
+                            <td><img th:src="@{/img/login_ico_pw.png}" alt="비밀번호"/></td>
                             <td><input type="password" name="pass" placeholder="비밀번호 입력" /></td>
                         </tr>
                     </table>
@@ -56,7 +52,7 @@
                     <a th:href="@{/member/terms}">회원가입</a>
                 </div>
                 <div>
-                    <img id="mb-4" src= "../img/lalaland.jpg" alt="로그인" >
+                    <img id="mb-4" th:src= "@{/img/lalaland.jpg}" alt="로그인" >
                 </div>
             </section>
             

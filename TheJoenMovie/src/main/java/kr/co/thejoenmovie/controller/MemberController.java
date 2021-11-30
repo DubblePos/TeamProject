@@ -3,8 +3,11 @@ package kr.co.thejoenmovie.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,8 +26,20 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	@GetMapping("/member/login")
-	public String login(){
+	public String login(String success, Model model){
+		model.addAttribute("success",success);
 		return "/member/login";
+	}
+	@PostMapping("/member/login")
+	public String login(HttpSession sess,MemberVo cv) {
+		MemberVo mv = service.selectMember(cv);
+		if(mv != null) {
+			sess.setAttribute("sessMember", mv);
+			return "redirect:/index?success=100";
+		}else {
+			return "redirect:/member/login?success=101";
+		}
+		
 	}
 	@GetMapping("/member/terms")
 	public String terms(){
