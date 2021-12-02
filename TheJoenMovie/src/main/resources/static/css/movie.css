@@ -1,22 +1,19 @@
-#header-img{
-    width: 51%;
-    height: 274px;
-    margin-top: 40px;
-    margin-right: 395px;
-    border: 1px solid black;
-    float: right;
-} 
-main{}
 main > section{
-    margin: 0 auto;
+    margin: 100px auto;
     
 }
 
-/* 占쎌겫占쎌넅 占쎄맒占쎄쉭 占쎌젟癰귨옙 */
-
+/* 占쎈쐻占쎈윪野껁깷�쐻占쎈윪占쎄섀 占쎈쐻占쎈윞筌띾�ｋ쐻占쎈윞占쎈룵 占쎈쐻占쎈윪占쎌젳占쎌녃域밟뫁�굲 */
+main > .total_movie > h1{
+	font-size: 80px;
+    font-weight: bolder;
+    margin: 70px auto;
+    width: 500px;
+	
+}
 main > section > .detail-title{
     margin-top: 100px;
-    margin-left: -100px;
+    margin-left: 380px;
 }
 main > section > .detail-title > h1{
     font-size: 40px;
@@ -29,7 +26,7 @@ main > section > .detail-title > hr{
 }
 
 main > section > .detail-image > img{
-    margin-left: -100px;
+    margin-left: 380px;
     width: 202px;
     height: 290px;
 
@@ -37,7 +34,7 @@ main > section > .detail-image > img{
 main > section > .detail-contents{
   	width: 984px;
     height: 220px;
-    margin-left: 120px;
+    margin-left: 595px;
     margin-top: -295px;
 }
 main > section > .detail-contents > .movie-title{
@@ -55,12 +52,12 @@ main > section > .detail-contents > div > p{
     font-size: 15px;
 }
 
-/* 占쎌겫占쎌넅 餓κ쑨援끿뵳占� */
+/* �뜝�럥�맶�뜝�럥�쑋�뇦猿곴뭍占쎌맶�뜝�럥�쑋�뜝�럡�� 嚥싳쉶瑗ч뇡癒�爾잌뜝�럥夷ⓨ뜝�럡猿숋옙�뼔�섓옙�맶占쎈쐻�뜝占� */
 
 .movie-content {
     width: 1200px;
     margin-top: 150px;
-    margin-left: -100px;
+    margin-left: 380px;
 }
 .movie-content > h1{
     font-size: 30px;
@@ -73,19 +70,15 @@ main > section > .detail-contents > div > p{
     font-size: 20px;
     margin-top: 20px;
 }
-.paging {
-    width: 100%;
-    padding: 30px 0;
-    text-align: center;
-}
+
 .body-wrap{
     position: relative;
 }
 .body-wrap > .review{
     position: absolute;
     width: 1202px;
-    top: 1300px;
-    margin-left: 352px;
+    top: 1500px;
+    margin-left: 560px;
 }
 .review > nav{}
 .review > nav > h1{
@@ -112,11 +105,19 @@ main > section > .detail-contents > div > p{
     color: red;
 }
 
-/* 占쎈읂占쎌뵠筌욑옙 甕곕뜇�깈  */
 
+.paging {
+    width: 100%;
+    padding: 30px 0px;
+    text-align: center;
+    margin-top: 1282px;
+}
 .paging > span > a {
+	width: 70px;
+	height: 70px;
     color: #777;            
-    font-size: 11px;
+    font-size: 24px;
+    
     letter-spacing: -1px;
 }
 
@@ -125,6 +126,7 @@ main > section > .detail-contents > div > p{
 }
 
 .paging > .num > a {
+	
     display: inline-block;
     min-width: 14px;
     margin: 0 2px;
@@ -132,7 +134,7 @@ main > section > .detail-contents > div > p{
     border: 1px solid #c4c4c4;
     background: url() 0 0 repeat-x;
     color: #000;
-    font-size: 12px;
+    font-size: 24px;
     text-align: center;
     text-decoration: none;
 }
@@ -143,5 +145,7 @@ main > section > .detail-contents > div > p{
 .paging > .num > a.on {
     color: #fe434c;
     font-weight: bold;
+    background-color: yellow;
 }
+
 

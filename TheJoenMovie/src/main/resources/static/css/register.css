@@ -4,7 +4,7 @@
     border: 100px;
     
     width: 600px;
-    margin: 20px auto;   
+    margin: 100px auto;   
           
 }
 
@@ -13,7 +13,7 @@
     width: 650px;
     border-collapse: collapse;
     border-spacing: 0;
-    margin-top: 100px;
+    margin-top: 200px;
     
 }
 .register table caption {
@@ -22,7 +22,10 @@
     text-align: center;
     color: black;
     font-size: 50px;
-    margin-bottom: 50px;   
+    margin-top: -424px;   
+}
+.register table #private-title{
+	margin-top: -560px;
 }
 .register table tr {
     font-style: italic;
@@ -66,7 +69,9 @@
     margin-top: 9px;
     margin-left: 12px;
 }
-.register table span {}
+.register table span {
+	font-size:16px;
+}
 
 .register table div {
     margin-bottom: 2px;

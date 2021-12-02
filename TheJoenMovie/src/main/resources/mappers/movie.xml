@@ -10,7 +10,7 @@
 		SELECT * FROM `Movie` RIGHT OUTER JOIN `Movie_cinema` ON `Movie`.title = `Movie_cinema`.title   RIGHT OUTER JOIN `Cinema` ON `Cinema`.cinema_code = `Movie_cinema`.cinema_code   WHERE `Movie`.title = #{title};
 	</select>
 	<select id="selectCate3" resultType="kr.co.thejoenmovie.vo.TimeVo">
-		SELECT * FROM `Date` WHERE `cinema_name` = #{cinema_name};
+		SELECT DISTINCT `date` FROM `Date` WHERE `cinema_name` = #{cinema_name};
 	</select>
 	<select id="selectCate4" resultType="kr.co.thejoenmovie.vo.TimeVo">
 		SELECT * FROM `Date` WHERE `cinema_name` = #{cinema_name} AND `date` = #{date};

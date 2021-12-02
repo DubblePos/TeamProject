@@ -26,15 +26,18 @@ public class MemberController {
 	@Autowired
 	private MemberService service;
 	@GetMapping("/member/login")
-	public String login(String success, Model model){
+	public String login(Model model,String success){
+		
 		model.addAttribute("success",success);
+		
+		
 		return "/member/login";
 	}
 	@PostMapping("/member/login")
-	public String login(HttpSession sess,MemberVo cv) {
-		MemberVo mv = service.selectMember(cv);
-		if(mv != null) {
-			sess.setAttribute("sessMember", mv);
+	public String login(HttpSession sess, MemberVo mv) {
+		MemberVo sessMember = service.selectMember(mv);
+		if(sessMember != null) {
+			sess.setAttribute("sessMember", sessMember);
 			return "redirect:/index?success=100";
 		}else {
 			return "redirect:/member/login?success=101";

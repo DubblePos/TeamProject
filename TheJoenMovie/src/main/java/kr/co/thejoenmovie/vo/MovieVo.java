@@ -2,26 +2,27 @@ package kr.co.thejoenmovie.vo;
 
 import lombok.Data;
 
-@Data
+@Data 
 public class MovieVo {
-	public int movie_num;
-	public String title;
-	public float score;
-	public String genre;
-	public String grade;
-	public String director;
-	public String actor;
-	public String rtime;
-	public String rdate;
-	public String poster;
-	public String cinema_name;
+	private int movie_num;
+	private String title;
+	private float score;
+	private String genre;
+	private String grade;
+	private String director;
+	private String actor;
+	private String rtime;
+	private String rdate;
+	private String poster;
+	private String cinema_name;
 	
 
 	// 추가필드
-	public String story;
-	public String cinema_code;
-	public String review_title;
-	public String review_id;
-	public String review_date;
-	public String review_text;
+	private String story;
+	private String cinema_code;
+	private String review_title;
+	private String review_id;
+	private String review_date;
+	private String review_text;
+	private String keyword;
 }

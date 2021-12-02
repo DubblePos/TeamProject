@@ -9,11 +9,15 @@
 		LIMIT 10;
 	</select>
 	<select id="MovieInfo" resultType="kr.co.thejoenmovie.vo.MovieVo">
-		SELECT * FROM `Movie` RIGHT OUTER JOIN `Story` ON `Movie`.title = `Story`.title
-		RIGHT OUTER JOIN `Movie_review` ON `Movie`.title = `Movie_review`.title
-		WHERE `Movie`.title = #{title};
+		SELECT * FROM `Movie` 
+		LEFT JOIN `Story` ON `Movie`.title = `Story`.title
+		LEFT JOIN `Movie_review` ON `Movie`.title = `Movie_review`.title
+		WHERE `Movie`.title LIKE CONCAT('%',#{keyword},'%');
 	</select>
 	<select id="selectAllMovies" resultType="kr.co.thejoenmovie.vo.MovieVo">
-		SELECT * FROM `Movie`;
+		SELECT * FROM `Movie` LIMIT #{start}, 10;
+	</select>
+	<select id="selectCountTotal" resultType="int">
+		SELECT COUNT(`movie_num`) FROM `Movie`;
 	</select>
 </mapper>

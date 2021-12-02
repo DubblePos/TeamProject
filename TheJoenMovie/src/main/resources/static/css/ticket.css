@@ -1,19 +1,13 @@
-#header-img{
-    width: 51%;
-    height: 274px;
-    margin-top: -140px;
-    margin-right: 395px;
-    border: 1px solid black;
-    float: right;
-} 
+
 /* 빠른예매 선택 영역 */
 main > .book-ticket{
     
     width: 600px;
     height: 800px;
     margin-top: 111px;
-    margin-left: 370px;
+    margin-left: 473px;
     text-align: center;
+
     
     
 }
@@ -99,17 +93,33 @@ main > section > .select.select-seat > .check-seats > .digits > p{
     margin-top: -899px;
     margin-right: -664px;
  }
+ .final-pay .final-title{
+	
+    font-size: 48px;
+    margin-left: -80px;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 60px;
+}
+ .final-pay .final-cate{
+ 	width: 600px;
+ 	height: 100px;
+ }
  .final-pay .final-cate .title{
      display: block;
-     width: 70px;
+     width: 100px;
      height: 30px;
-     
+     font-size: 30px;
      margin-top: 30px;
      font-weight: bolder;
-
  }
- .final-pay .final-cate .valuㄷ{
-     float: right;
+ .final-pay .final-cate .value{
+     font-size: 31px;
+     width: 350px;
+
+     display: inline-block;
+     margin-top: -50px;
+     
  }
  .point-info{
      margin-top: 80px;
@@ -118,10 +128,10 @@ main > section > .select.select-seat > .check-seats > .digits > p{
      font-size: 18px;
  }
  .btn.btn-danger{
-     width:230px;
-     height: 40px;
-     font-size: 20px;
-     margin-top: 30px;
+    width: 278px;
+    height: 72px;
+    font-size: 32px;
+    margin-top: 30px;
  }
  
  

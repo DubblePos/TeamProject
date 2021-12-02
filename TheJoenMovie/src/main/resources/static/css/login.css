@@ -1,15 +1,8 @@
-#header-img{
-    width: 51%;
-    height: 274px;
-    margin-top: 40px;
-    margin-right: 395px;
-    border: 1px solid black;
-    float: right;
-} 
+
 #user {}
 #user.login {
-    width: 300px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
     margin: 100px auto;           
 }
 #user.login > form {
@@ -23,15 +16,17 @@
 }
 
 #user.login > form > table img {
-    width: 20px;
+    width: 40px;
+    margin-top:0px;
 }
 #user.login > form > table input {
     width: 162px;
-    height: 22px;
+    height: 30px;
     margin: 0 0 5px 0;
     border: 1px solid #e4eaec;
     background: #f7f7f7;
-    color: #111;            
+    color: #111;          
+    font-size: 20px;  
 }
 #user.login > form > input[type=submit] {
     position: absolute;
@@ -51,18 +46,14 @@
     border: 1px solid #cfded8;
     background: #f5f6fa;
     overflow: hidden;
+    
 }
 
 #user.login > .info > p {
     padding: 10px 0;
+    font-size:18px;
 }
 #user.login > .info > a {
     float: right;
-}
-
-/* 로그인 이미지 설정 */
-main  #mb-4{   
-      width: 850px;
-      height: 450px;
-      margin: 50px -250px;
+    font-size: 24px;
 }

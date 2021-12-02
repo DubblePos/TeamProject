@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,11 +12,11 @@
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <link rel="stylesheet" th:href="@{/css/style.css}"/>
-    
-    <link rel="stylesheet" href="../css/main.css"/>
-    <link rel="stylesheet" href="../css/header.css"/>
-    <link rel="stylesheet" href="../css/register.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/register.css}"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script>
 	 	// 정규표현식(Regular Expression)
 	    var reUid  = /^[a-z]+[a-z0-9]{3,10}$/;
@@ -40,7 +40,7 @@
 					// Json데이터 생성 
 					var jsonData = {'uid': uid}; // json은 자바스크립트 문법 객체표현 키:값 형식 get방식으로 보낼 키와 값을 지정해준다. 
 					// ajax 통신 			
-					$.get('/member/checkUid',jsonData,function(data){
+					$.get('/TheJoenMovie/member/checkUid',jsonData,function(data){
 						if(uid == ''){
 							$('.resultId').css('color','red').text('아이디가 입력되지 않았습니다');
 							isUidOk = false;
@@ -91,7 +91,7 @@
 					var nick = $(this).val();
 					var jsonData = {'nick': nick };
 					$.ajax({
-						url:'/member/checkNick',
+						url:'/TheJoenMovie/member/checkNick',
 						type:'get',
 						data: jsonData,
 						dataType:'json',
@@ -118,7 +118,7 @@
 					var email = $(this).val();
 					var jsonData = {'email':email};
 					$.ajax({
-						url:'/member/checkEmail',
+						url:'/TheJoenMovie/member/checkEmail',
 						type:'get',
 						data:jsonData,
 						dataType:'json',
@@ -140,7 +140,7 @@
 					var hp = $(this).val();
 					var jsonData = {'hp':hp};
 					$.ajax({
-						url: '/member/checkHp',
+						url: '/TheJoenMovie/member/checkHp',
 						type:'get',
 						data:jsonData,
 						dataType: 'json',
@@ -197,14 +197,19 @@
 				
 		});
     </script>
+    <style>
+    	.private-info{
+    	
+    	}
+    </style>
 </head>
 <body>
     <div class="body-wrap">
         <th:block th:include="@{_header.html}"/>
         <section id="member" class="register">
             <form th:action="@{/member/register}" method="POST">
-                <table border="1">
-                    <caption>사이트 이용정보 입력</caption>
+                <table border="1" class="site-info">
+                    <caption id="site-title">사이트 이용정보 입력</caption>
                     <tr>
                         <td>아이디</td>
                         <td>
@@ -226,8 +231,8 @@
                         </td>
                     </tr>
                 </table>
-                <table border="1">
-                    <caption>개인정보 입력</caption>
+                <table border="1" class="private-info">
+                    <caption id="private-title">개인정보 입력</caption>
                     <tr>
                         <td>이름</td>
                         <td>

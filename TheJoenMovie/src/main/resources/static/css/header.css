@@ -5,40 +5,28 @@ header {
     overflow: hidden;
 }
 
-*{
-    margin:0;
-    padding:0;
-    border:0;
-    font-size: 12px;
-    top: 0px;
+header .logo{
+	height: 315px;
+}
 
-}
-ul,ol{
-    list-style: none;
-
-}
-a{
-    text-decoration: none;
-}
-body{
-    
-    height: 2000px;
-    background-color: #FFFF 
-}
-#header .headerimg{  
-    width: 771px;
-    height: 274px;
+header > img{
+   	width: 51%;
+    height: 276px;
+    margin-top: 15px;
+    margin-right: 201px;
+    border: 1px solid black;
     float: right;
 }
+
+
 
 #gnb{
     float: right;
     width: 100%;
     height: 120px;
-    margin-top: 60px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
-
-#gnb > .main-menu{}
 
 #gnb > .main-menu > ul > li{
     float: left;
@@ -46,14 +34,16 @@ body{
     text-align: center;
 }
 #gnb > .main-menu > ul > li > a > img{
-    width: 60px;
+    width: 90px;
 }
+
+
 
 #gnb > .main-menu > ul > li{
     float: left;
 }
 
-/* 硫붾돱�쐞�뿉 留덉슦�뒪媛� �젒洹쇳뻽�쓣 寃쎌슦 �꽭遺�硫붾돱 �굹���굹湲�*/
+/* 嶺뚮∥��占쎈��뜝�럩留꾢뜝�럥�뱺 嶺뚮씭�쐠占쎈뮡�뜝�럥裕욄뤆�룊�삕 �뜝�럩�젘�윜諭��닗筌묒룞�삕占쎈굵 �뇦猿뗫윪占쎈뮡 �뜝�럡�돪占쎄껀�뜝�룞彛뽭겫�뼔琉� �뜝�럡�룎�뜝�룞�삕�뜝�럡�룎�뼨�먯삕*/
 
 #gnb ul{
     position: relative;
@@ -73,6 +63,12 @@ body{
 	float: left;
     width: 25%;
     text-align: center;
+}
+#gnb .menu-title{
+	
+	font-size: 30px;
+	color: black;
+	font-weight: bold;
 }
 .main-menu ul li:hover #ticket-depth2{
     display:block;

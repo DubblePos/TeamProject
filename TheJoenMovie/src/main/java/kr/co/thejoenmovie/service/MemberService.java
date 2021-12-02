@@ -11,8 +11,13 @@ public class MemberService {
 	@Autowired
 	private MemberDao dao;
 	
+	
+	
 	public void insertMember(MemberVo mv) {
 		dao.insertMember(mv);
+	}
+	public MemberVo selectMember(MemberVo mv) {
+		return dao.selectMember(mv);
 	}
 	public int selectCountUid(String uid) {
 		return dao.selectCountUid(uid);
@@ -25,10 +30,5 @@ public class MemberService {
 	}
 	public int selectCountHp(String hp) {
 		return dao.selectCountHp(hp);
-	}
-	
-	
-	public MemberVo selectMember(MemberVo mv) {
-		return dao.selectMember(mv);
 	}
 }
