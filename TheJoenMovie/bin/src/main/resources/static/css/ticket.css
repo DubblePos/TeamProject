@@ -1,19 +1,13 @@
-#header-img{
-    width: 51%;
-    height: 274px;
-    margin-top: -140px;
-    margin-right: 395px;
-    border: 1px solid black;
-    float: right;
-} 
+
 /* 빠른예매 선택 영역 */
-main > section{
+main > .book-ticket{
     
     width: 600px;
     height: 800px;
-    margin-top: 700px;
-    margin-left: 200px;
+    margin-top: 111px;
+    margin-left: 473px;
     text-align: center;
+
     
     
 }
@@ -63,38 +57,69 @@ main > section > .select.select-seat > .check-seats > .digits > p{
     margin-top: 5px;
 }
 /* 좌석 체크 선택*/
-
+.select.select-seat .check-seats{
+	margin: 40px auto;
+}
 .select.select-seat .check-seats input{
     width: 20px;
     height: 20px;
-    margin: 5px 10px;
+    margin: 3px 9px;
     border: 1px solid black;
     text-align: center;
 }
 .select.select-seat .check-seats .seat5{
     margin-right: 50px;
 }
-
+/* 예약된 좌석은 스타일링 변경 */
+.check-seats table tr .booked{
+	background-color: #ff0000;
+	color: #ffffff;
+}
+/* 좌석번호 폰트 설정 */
+.check-seats table tr td p{
+	font-size: 20px;
+}
+.check-seats table tr td label{
+	font-size: 20px;
+}
+.check-seats table{
+	margin: 0 -50px;
+}
 /* 최종적으로 예매하기 전 합산 */
  .final-pay{
-     float: right;
-     width: 500px;
-     height: 900px;
-     
-     margin-top:-780px;
-     margin-right: 300px;
+    float: right;
+    width: 500px;
+    height: 900px;
+    margin-top: -899px;
+    margin-right: -664px;
+ }
+ .final-pay .final-title{
+	
+    font-size: 48px;
+    margin-left: -80px;
+    font-weight: bold;
+    margin-top: -10px;
+    margin-bottom: 60px;
+}
+ .final-pay .final-cate{
+ 	width: 600px;
+ 	height: 100px;
  }
  .final-pay .final-cate .title{
      display: block;
-     width: 70px;
+     width: 100px;
      height: 30px;
-     
+     font-size: 30px;
      margin-top: 30px;
      font-weight: bolder;
-
  }
- .final-pay .final-cate .valuㄷ{
-     float: right;
+ .final-pay .final-cate .value{
+     font-size: 31px;
+     width: 350px;
+
+     display: inline-block;
+     margin-top: -50px;
+     
  }
  .point-info{
      margin-top: 80px;
@@ -103,8 +128,11 @@ main > section > .select.select-seat > .check-seats > .digits > p{
      font-size: 18px;
  }
  .btn.btn-danger{
-     width:230px;
-     height: 40px;
-     font-size: 20px;
-     margin-top: 30px;
+    width: 278px;
+    height: 72px;
+    font-size: 32px;
+    margin-top: 30px;
  }
+ 
+ 
+ 

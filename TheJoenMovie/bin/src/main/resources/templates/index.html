@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
    
     
     <script>
@@ -24,60 +25,31 @@
             });
         });
     </script>
-    
+    <script th:inline="javascript">
+    	var search = [[${search}]];
+    	if(search == '101'){
+    		alert('검색 결과가 없습니다. 일부 영화명을 입력하셔도 좋습니다.');
+    	}
+    	var success = [[${success}]];
+    	if(success == '100'){
+    		alert('로그인에 성공하셨습니다.');
+    	}
+    </script>
 </head>
 <body>
     <div class="body-wrap">
-        <header id="header">
-            <h1 class="ci">
-                <a href="/" title="더조은무비 메인으로가기">
-                    <img th:src="@{/img/logo_image.png}">
-                </a>
-            </h1>
-            
-            <nav id="gnb">
-            
-                <div class="main-menu">
-                    <ul class="menu-depth1">
-                        <li>
-                            <a th:href="@{/view_total_movie}">
-                                <img th:src="@{/img/movie_menu01.png}">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">영화</h1>
-                            </a>
-                            
-                        </li>
-                        <li>
-                            <a th:href="@{/book_ticket}">
-                                <img th:src="@{/img/ticket_menu01.png}">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">예매</h1>
-                            </a>
-                        
-                        </li>
-                        <li>
-                            <a th:href="@{/view_event}">
-                                <img th:src="@{/img/event_menu02.png}" style="margin-left:20px;">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">이벤트</h1>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{/member/login}">
-                                <img th:src="@{/img/login_image.png}" style="margin-left:10px;">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">멤버쉽</h1>
-                            </a>
-                        </li>
-                    </ul>              
-                </div>
-            </nav>
-        </header>
-          
+        <th:block th:include="@{_header.html}"/>
         <!--  
-        <img id="header-img" th:src="@{/img/disneychristmas.png}" alt="">-->
+        	<img id="header-img" th:src="@{/img/disneychristmas.png}" alt="">
+        -->
         <main style="margin-top:100px;">
             <section>
                 
-                <form id="search" action="/">
+                <form id="search" th:action="@{/view_movie}" method="GET">
                     <input type="text" name="keyword" placeholder="영화제목을 입력해주세요"/>
-                    <button type="submit"><img th:src="@{/img/search_logo.png}" style="width:50px;height: 50px;"></button>
+                    <button type="submit">
+                    	<img th:src="@{/img/search_logo.png}" style="width:50px;height: 50px;">
+                    </button>
                 </form>    
 
                 <!-- 슬라이더 영역-->
@@ -92,11 +64,10 @@
                 <section class="rank">
                     <h1>박스오피스</h1>
                     <article th:each="movies : ${movieinfo}">
-                        <a>
-                        
+                          <a th:href="@{/view_movie(keyword=${movies.title})}">
                             <div class="rank-movie-image">
                                 <img th:src="@{/img/{poster}(poster=${movies.poster})}" alt="rank1"/>
-                                <h2 style="color:black;font-size:30px;">[[${movies.title}]]</h2>
+                                <!--  <h2 style="color:black;font-size:30px;">[[${movies.title}]]</h2>-->
 	                            <p style="color:black;font-size:25px;">[[${movies.genre}]]</p>
 	                            <p style="color:black;font-size:25px;">[[${movies.director}]]</p>
 	                            <!-- <p style="color:black;font-size:25px;">[[${movies.actor}]]</p> -->

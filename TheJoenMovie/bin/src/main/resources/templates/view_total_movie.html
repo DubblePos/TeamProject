@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
     <link rel="stylesheet" th:href="@{/css/header.css}"/>
+    <link rel="stylesheet" th:href="@{/css/movie.css}"/>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <script>
         $(document).ready(function(){
           $('.slider > ul').bxSlider({
@@ -27,59 +30,44 @@
 </head>
 <body>
     <div class="body-wrap">
-        <header id="header">
-            <h1 class="ci">
-    
-                <a href="/" title="더조은무비 메인으로가기">
-                    <img th:src="@{/img/logo_image.png}">
-                </a>
-            </h1>
-            <nav id="gnb">
-                <div class="main-menu">
-                    <ul class="menu-depth1">
-                        <li>
-                            <a th:href="@{/view_total_movie}">
-                                <img th:src="@{/img/movie_menu01.png}">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">영화</h1>
-                            </a>
-                            
-                        </li>
-                        <li>
-                            <a th:href="@{/book_ticket}">
-                                <img th:src="@{/img/ticket_menu01.png}">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">예매</h1>
-                            </a>
-                        
-                        </li>
-                        <li>
-                            <a th:href="@{/view_event}">
-                                <img th:src="@{/img/event_menu02.png}" style="margin-left:20px;">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">이벤트</h1>
-                            </a>
-                        </li>
-                        <li>
-                            <a th:href="@{/member/login}">
-                                <img th:src="@{/img/login_image.png}" style="margin-left:10px;">
-                                <h1 style="color:#120303;font-size:25px; text-align: center;">멤버쉽</h1>
-                            </a>
-                        </li>
-                    </ul>              
-                </div>
-            </nav>
-            
-        </header>
-        <style>
-            #header-img{
-                width: 51%;
-                height: 274px;
-                margin-top: 40px;
-                margin-right: 395px;
-                border: 1px solid black;
-                float: right;
-            } 
-        </style>
-        <img id="header-img" src="./img/disneychristmas.png" alt="">
+        <th:block th:include="@{_header.html}"/>
     </div>
-    
 </body>
+<main>
+	
+	<section class="total_movie">
+		<h1>전체 영화</h1>
+		<article th:each="movies : ${allmovie}">
+			<a th:href="@{/view_movie(keyword=${movies.title})}">
+			
+       			<div class="movie-image">
+            		<img th:src="@{/img/{poster}(poster=${movies.poster})}" alt="Movies"/>
+            			<p style="color:black;font-size:25px;">[[${movies.title}]]</p>
+						<!-- <p style="color:black;font-size:25px;">[[${movies.genre}]]</p> -->
+						<!-- <p style="color:black;font-size:25px;">[[${movies.director}]]</p>  -->
+						<!-- <p style="color:black;font-size:25px;">[[${movies.actor}]]</p> -->
+						<p style="color:black;font-size:25px;">[[${movies.rtime}]]분</p>
+						<p style="color:black;font-size:25px;">[[${movies.rdate}]]개봉</p>
+						<h1 class="rating star5" style="color:black;font-size:20px;">평점 [[${movies.score}]]</h1>
+		        </div>
+		    </a>
+		</article>
+    </section>
+</main>
+ <!-- 페이지 네비게이션 -->
+            <div class="paging">
+            	<span class="num">
+	                <th:block th:if="${groups[0] > 1}">
+	                	<a th:href="@{/view_total_movie(pg=${groups[0]-1})}" class="prev">이전</a>
+	                </th:block> 
+	                <th:block th:each="num:${#numbers.sequence(groups[0],groups[1])}"> <!--  가상태그를 선택한다. a태그에서 반복할 수 없으므로  -->
+	                	
+	               			<a th:href="@{/view_total_movie(pg=${num})}" th:class="${ num ==  currentPage ?'num on' : 'num'}">[[${num}]]</a>
+	                	
+	                </th:block>
+	                <th:block th:if="${groups[1] < lastPageNum}">
+	                	<a th:href="@{/view_total_movie(pg=${groups[1]+1})}" class="next">다음</a>
+	                </th:block>   
+                </span>         
+            </div>
 </html>

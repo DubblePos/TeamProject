@@ -1,19 +1,30 @@
+*{
+    margin:0;
+    padding:0;
+    border:0;
+    font-size: 12px;
+    color: black;
+    top: 0px;
 
-#header-img{
-    width: 51%;
-    height: 274px;
-    margin-top: 40px;
-    margin-right: 395px;
-    border: 1px solid black;
-    float: right;
-} 
+}
+ul,ol{
+    list-style: none;
+
+}
+a{
+    text-decoration: none;
+}
+body{
+    
+    height: 2000px;
+    background-color: #FFFF 
+}
 
 /* 검색창 스타일링 */
 main > section > #search{
     position: absolute;
-
-    top: 560px;
-    left: 730px;
+    top: 590px;
+    left: 700px;
 }
 main > section > #search > input[name=keyword]{
     
@@ -22,6 +33,8 @@ main > section > #search > input[name=keyword]{
     font-size: 20px;
     text-align: center;
     border: 1px solid black;
+    margin-left: 240px;
+    margin-top: -50px;
 }
 main > section > #search > button{
     position: absolute;
@@ -29,6 +42,7 @@ main > section > #search > button{
     width: 60px;
     height: 52px;
     border: 1px solid black;
+    margin-top: -23px;
 }
 
 
@@ -37,7 +51,7 @@ main > section > #search > button{
     position:absolute;
 
     top:660px;
-    left: 500px;
+    left: 700px;
     width: 900px;
     height: 800px;
     overflow: hidden;
@@ -63,38 +77,34 @@ main > section > #search > button{
 
 main > section {
     
-    width: 1000px;
+    width: 1900px;
     height: 200px;
     
 }
 
 main > section > .rank{
-    width:1800px;
+    width: 1900px;
     height: auto;
     overflow: hidden;
+    margin-top: 1000px;
+    margin-left: 200px;
     
-    
-    margin-top: 1500px;
-    margin-left: 50px;
-	
     
 }
 main  > section > .rank > h1{
-	color: black; 
-	font-size: 70px; 
-	font-family: fantasy;
-	text-align: center;
+	color: black;
+    font-size: 70px;
+    font-family: fantasy;
+    text-align: center;
+    margin-bottom: 50px;
+    font-weight: bold;
 }
 
 main > section > section > article {
 
     float: left;
     margin-top: 40px;
-    padding: 30px 44px;  
-    width: auto;
-
-    height: auto;
-    
+    padding: 0px 65px;
 }
 
 
@@ -119,4 +129,41 @@ h1.rating{
 h1.rating.star5 {
     margin-top: 20px;
     background-position: 70px -160px;
+}
+
+
+/* total movie */
+main > section > article .movie-image > img{
+    width: 250px;
+    height: 400px;
+}
+
+main > section > .total_movie{
+    width: 1900px;
+    height: auto;
+    overflow: hidden;
+    margin-top: 1000px;
+	
+    
+}
+main  > section > .total_movie > h1{
+	color: black; 
+	font-size: 70px; 
+	font-family: fantasy;
+	text-align: center;
+}
+
+main > section > article {
+
+    float: left;
+    margin-top: 40px;
+    padding: 0px 65px;
+}
+
+main > section > article > a > div > p{
+	
+	width: 250px;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
 }
